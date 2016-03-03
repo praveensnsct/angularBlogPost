@@ -16,7 +16,7 @@ angularBlogServices.factory('BlogPost', ['$resource',
 
 angularBlogServices.factory('BlogList', ['$resource',
     function($resource) {
-        return $resource("./NodeBlog/blogList", {}, {
+        return $resource("http://localhost:8080/NodeBlog/blogList", {}, {
             get: {method: 'GET', cache: false, isArray: true}            
         });
     }]);

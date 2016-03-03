@@ -10,6 +10,7 @@ angularBlogControllers.controller('BlogCtrl', ['$scope', 'BlogList', '$location'
     function BlogCtrl($scope, BlogList, $location, checkCreds) {
         if (!checkCreds()) {
             $location.path('/login');
+            return;
         }
         $scope.blogList = [];
         $scope.brandColor = "color: white;";
@@ -32,6 +33,7 @@ angularBlogControllers.controller('BlogViewCtrl', ['$scope', '$routeParams', 'Bl
     function BlogViewCtrl($scope, $routeParams, BlogPost, BlogPostComments, $location, checkCreds, $http, getToken, $route) {
         if (!checkCreds()) {
             $location.path('/login');
+            return;
         }
         var blogId = $routeParams.id;
         $scope.blg = 1;
@@ -76,6 +78,7 @@ angularBlogControllers.controller('LoginCtrl', ['$scope', '$location', 'Login', 
     function LoginCtrl($scope, $location, Login, setCreds, checkCreds) {
         if (checkCreds()) {
             $location.path('/');
+            return;
         }
         $scope.submit = function() {
             $scope.sub = true;
@@ -113,6 +116,7 @@ angularBlogControllers.controller('NewBlogPostCtrl', ['$scope', 'BlogPost', '$lo
     function NewBlogPostCtrl($scope, BlogPost, $location, checkCreds, $http, getToken) {
         if (!checkCreds()) {
             $location.path('/login');
+            return;
         }
         $scope.languageList = [
             {
@@ -154,6 +158,7 @@ angularBlogControllers.controller('AboutBlogCtrl', ['$scope', '$location', 'chec
     function AboutBlogCtrl($scope, $location, checkCreds) {
         if (!checkCreds()) {
             $location.path('/login');
+            return;
         }
         $scope.aboutActiveClass = "active";
 
